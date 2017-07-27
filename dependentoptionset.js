@@ -1,11 +1,11 @@
 ///<reference path="MSXRMTOOLS.Xrm.Page.2016.js"/>
-if (Slicedbread === undefined) {
-    var Slicedbread = {};
+if (OptionSet === undefined) {
+    var OptionSet = {};
     var source;
     var secondarySource;
     //   console.log("namespace generated");
 }
-Slicedbread.onLoad = function (parentOptionSet, childOptionSet) {
+OptionSet.onLoad = function (parentOptionSet, childOptionSet) {
     source = Xrm.Page.getAttribute(parentOptionSet);
     secondarySource = Xrm.Page.getAttribute(childOptionSet);
     // console.log("sources discovered");
@@ -13,11 +13,11 @@ Slicedbread.onLoad = function (parentOptionSet, childOptionSet) {
         Xrm.Page.getControl(childOptionSet).setDisabled(true);
     }
     else {
-        Slicedbread.Init(parentOptionSet, childOptionSet);
+        OptionSet.Init(parentOptionSet, childOptionSet);
     }
     //Xrm.Utility.alertDialog(childOptionSet);
 }
-Slicedbread.Init = function (parentOptionSet, childOptionSet) {
+Optionset.Init = function (parentOptionSet, childOptionSet) {
     var secondarySourceControl = Xrm.Page.getControl(childOptionSet);
     var secondarySourceOptions = secondarySourceControl.getOptions();
     for (var i = 0; i < secondarySourceOptions.length; i++) {
@@ -27,7 +27,7 @@ Slicedbread.Init = function (parentOptionSet, childOptionSet) {
         }
     }
 }
-Slicedbread.DependentOptionSet = function (parentOptionSet, childOptionSet) {
+Optionset.DependentOptionSet = function (parentOptionSet, childOptionSet) {
     var sourceValue = source.getValue();
     var childOptionSetControl = Xrm.Page.getControl(childOptionSet);
     if (sourceValue === "" || sourceValue === -1 || sourceValue == null) {
